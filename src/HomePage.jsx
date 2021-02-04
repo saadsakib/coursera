@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "@material-ui/core/AppBar";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -17,12 +17,12 @@ import Link from "@material-ui/core/Link";
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {"Copyright © "}
       <Link color="inherit" href="https://material-ui.com/">
         Your Website
-      </Link>{' '}
+      </Link>{" "}
       {new Date().getFullYear()}
-      {'.'}
+      {"."}
     </Typography>
   );
 }
@@ -30,6 +30,12 @@ function Copyright() {
 const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
+  },
+  toolbarTitle: {
+    flex: 1,
+  },
+  toolbarButton: {
+    margin: theme.spacing(1, 2),
   },
   heroContent: {
     backgroundColor: theme.palette.background.paper,
@@ -73,9 +79,41 @@ const HomePage = (props) => {
       <AppBar position="relative">
         <Toolbar>
           <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography
+            component="h2"
+            variant="h4"
+            color="inherit"
+            align="center"
+            noWrap
+            className={classes.toolbarTitle}
+          >
             Coursera
           </Typography>
+          <Link
+            component="button"
+            variant="body2"
+            href="#"
+            color="secondary"
+            noWrap
+          >
+            Button Link
+          </Link>
+          <Button
+            variant="contained"
+            size="small"
+            component={Link}
+            to="/app/projects"
+            className={classes.toolbarButton}
+          >
+            Sign up
+          </Button>
+          <Button
+            variant="contained"
+            size="small"
+            className={classes.toolbarButton}
+          >
+            Sign in
+          </Button>
         </Toolbar>
       </AppBar>
       <main>
@@ -105,7 +143,12 @@ const HomePage = (props) => {
             </Grid>
           </Grid>
         </div>
-        <Typography gutterBottom variant="h5" component="h2" className={classes.courseCategory}>
+        <Typography
+          gutterBottom
+          variant="h5"
+          component="h2"
+          className={classes.courseCategory}
+        >
           Most Popular Courses
         </Typography>
         <Container className={classes.cardGrid} maxWidth="md">
