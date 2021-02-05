@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { makeStyles } from "@material-ui/core/styles";
-import {AppBar, Tabs, Tab, Typography, Box} from "@material-ui/core";
+import { AppBar, Tabs, Tab, Typography, Box } from "@material-ui/core";
 import AllCourses from "./AllCourses";
+import InProgressCourses from "./InProgressCourses";
+import CompletedCourses from "./CompletedCourses";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -15,11 +17,7 @@ function TabPanel(props) {
       aria-labelledby={`simple-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box p={3}>
-          {children}
-        </Box>
-      )}
+      {value === index && <Box p={3}>{children}</Box>}
     </div>
   );
 }
@@ -69,10 +67,10 @@ const Courses = () => {
         <AllCourses />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        <Typography>Item Two</Typography>
+        <InProgressCourses />
       </TabPanel>
       <TabPanel value={value} index={2}>
-        <Typography>Item Three</Typography>
+        <CompletedCourses />
       </TabPanel>
     </div>
   );
