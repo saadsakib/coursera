@@ -1,5 +1,7 @@
 import React from "react";
 import HomePage from "./HomePage";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
 const App = () => {
@@ -22,8 +24,21 @@ const App = () => {
     },
   ];
 
-  return <HomePage subjects={subjects} />
-  
+  return (
+    <Router>
+      <Switch>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
+        <Route path="/signin">
+          <SignIn />
+        </Route>
+        <Route path="/">
+          <HomePage subjects={subjects} />
+        </Route>
+      </Switch>
+    </Router>
+  );
 };
 
 export default App;
