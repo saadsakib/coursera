@@ -1,16 +1,13 @@
 import React from "react";
 import {
-  AppBar,
   Button,
   CssBaseline,
   Grid,
-  Toolbar,
   Typography,
 } from "@material-ui/core";
-import CameraIcon from "@material-ui/icons/PhotoCamera";
 import { makeStyles } from "@material-ui/core/styles";
-import { Link as RouterLink } from "react-router-dom";
 import Courses from "../components/courses";
+import TopBar from "../components/TopBar";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -41,39 +38,7 @@ const HomePage = (props) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography
-            component="h2"
-            variant="h4"
-            color="inherit"
-            align="center"
-            noWrap
-            className={classes.toolbarTitle}
-          >
-            Coursera
-          </Typography>
-          <Button
-            variant="contained"
-            size="small"
-            component={RouterLink}
-            to="/signup"
-            className={classes.toolbarButton}
-          >
-            Sign up
-          </Button>
-          <Button
-            variant="contained"
-            size="small"
-            component={RouterLink}
-            to="/signin"
-            className={classes.toolbarButton}
-          >
-            Sign in
-          </Button>
-        </Toolbar>
-      </AppBar>
+      <TopBar />
       <main>
         <div className={classes.heroContent}>
           <Typography

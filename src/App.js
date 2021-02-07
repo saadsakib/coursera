@@ -1,8 +1,9 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import Course from "./pages/Course";
 
 const App = () => {
   let subjects = [
@@ -32,6 +33,9 @@ const App = () => {
         </Route>
         <Route path="/signin">
           <SignIn />
+        </Route>
+        <Route path="/course">
+          <Course />
         </Route>
         <Route path="/">
           <HomePage subjects={subjects} />
