@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import Course from "./pages/Course";
+import Course from "./pages/CoursePage";
 
 const App = () => {
   return (

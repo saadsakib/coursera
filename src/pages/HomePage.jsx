@@ -38,7 +38,7 @@ const HomePage = (props) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <TopBar />
+      <TopBar authenticated={true}/>
       <main>
         <div className={classes.heroContent}>
           <Typography
@@ -58,27 +58,12 @@ const HomePage = (props) => {
           >
             Learn from amazing people around the world.
           </Typography>
-          <Grid container spacing={2} justify="center">
-            <Grid item>
-              <Button variant="contained" color="primary">
-                Explore
-              </Button>
-            </Grid>
-          </Grid>
         </div>
         <Courses />
       </main>
       <footer className={classes.footer}>
         <Typography variant="h6" align="center" gutterBottom>
           Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="textSecondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
         </Typography>
       </footer>
     </React.Fragment>

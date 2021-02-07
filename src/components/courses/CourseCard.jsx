@@ -14,6 +14,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Link as RouterLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   cardContent: {
@@ -79,14 +80,18 @@ const CourseCard = (props) => {
               Course Title
             </Typography>
 
-            <Button size="small" variant="contained" color="primary">
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              component={RouterLink}
+              to="/course"
+            >
               Go To Course
             </Button>
           </div>
           <Divider />
-          <Typography variant="subtitle1">
-            UNIVERSITY A
-          </Typography>
+          <Typography variant="subtitle1">UNIVERSITY A</Typography>
         </CardContent>
       </Card>
     </Grid>
