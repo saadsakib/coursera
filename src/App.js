@@ -1,30 +1,11 @@
 import React from "react";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import Course from "./pages/Course";
 
 const App = () => {
-  let subjects = [
-    {
-      name: "Math",
-      enrolled: true,
-    },
-    {
-      name: "Computer Science",
-      enrolled: false,
-    },
-    {
-      name: "English",
-      enrolled: false,
-    },
-    {
-      name: "Physics",
-      enrolled: true,
-    },
-  ];
-
   return (
     <Router>
       <Switch>
@@ -37,9 +18,10 @@ const App = () => {
         <Route path="/course">
           <Course />
         </Route>
-        <Route path="/">
-          <HomePage subjects={subjects} />
+        <Route path="/home">
+          <HomePage />
         </Route>
+        <Route path="/" exact render={() => <Redirect to="/signin" />} />
       </Switch>
     </Router>
   );

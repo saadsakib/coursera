@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     width: "100%", // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  submit: {
+  submitButton: {
     margin: theme.spacing(3, 0, 2),
   },
 }));
@@ -70,11 +70,12 @@ const SignIn = () => {
             autoComplete="current-password"
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
-            className={classes.submit}
+            component={RouterLink}
+            to="/home"
+            className={classes.submitButton}
           >
             Sign In
           </Button>

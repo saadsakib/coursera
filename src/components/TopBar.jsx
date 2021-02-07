@@ -1,8 +1,17 @@
 import React from "react";
-import {AppBar, Toolbar, Typography, Button} from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Avatar,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import CameraIcon from "@material-ui/icons/PhotoCamera";
-import { Link as RouterLink } from "react-router-dom";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import { deepOrange } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -14,13 +23,23 @@ const useStyles = makeStyles((theme) => ({
   toolbarTitle: {
     flex: 1,
   },
-  toolbarButton: {
-    margin: theme.spacing(1, 2),
-  }
+  orange: {
+    color: theme.palette.getContrastText(deepOrange[500]),
+    backgroundColor: deepOrange[500],
+  },
 }));
 
 const TopBar = () => {
   const classes = useStyles();
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -36,24 +55,28 @@ const TopBar = () => {
         >
           Coursera
         </Typography>
-        <Button
-          variant="contained"
-          size="small"
-          component={RouterLink}
-          to="/signup"
-          className={classes.toolbarButton}
+        <Avatar className={classes.orange}>N</Avatar>
+        <Typography variant="subtitle2">Your Name</Typography>
+        <IconButton
+          aria-controls="simple-menu"
+          aria-haspopup="true"
+          onClick={handleClick}
         >
-          Sign up
-        </Button>
-        <Button
-          variant="contained"
-          size="small"
-          component={RouterLink}
-          to="/signin"
-          className={classes.toolbarButton}
+          <ExpandMore />
+        </IconButton>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          getContentAnchorEl={null}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
         >
-          Sign in
-        </Button>
+          <MenuItem onClick={handleClose}>Profile</MenuItem>
+          <MenuItem onClick={handleClose}>Settings</MenuItem>
+          <MenuItem onClick={handleClose}>Logout</MenuItem>
+        </Menu>
       </Toolbar>
     </AppBar>
   );
